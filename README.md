@@ -1,4 +1,4 @@
-# 🏠 Khan Real Estate Platform
+# 🏠 Real Estate Platform
 
 A modern, full-stack real estate platform built for the Pakistani market. This application allows users to browse, search, and filter properties for sale or rent across major Pakistani cities like Islamabad, Lahore, and Karachi.
 
