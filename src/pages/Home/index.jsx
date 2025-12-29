@@ -128,7 +128,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
               >
                 Discover Your
                 <span className="block mt-2">
@@ -142,7 +142,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl text-stone-300 mb-10 max-w-xl leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-stone-300 mb-10 max-w-xl leading-relaxed"
               >
                 {agentConfig.tagline}. With {agentConfig.experience} of excellence in Pakistan real estate.
               </motion.p>
@@ -152,7 +152,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="grid grid-cols-4 gap-4 mb-10"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10"
               >
                 {[
                   { value: agentConfig.stats.propertiesSold, suffix: '+', label: 'Properties' },
@@ -167,10 +167,10 @@ const Home = () => {
                     transition={{ delay: 0.6 + index * 0.1 }}
                     className="text-center"
                   >
-                    <p className="text-2xl md:text-3xl font-bold text-white">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                       {stat.value}<span className="text-primary-400">{stat.suffix}</span>
                     </p>
-                    <p className="text-stone-400 text-sm mt-1">{stat.label}</p>
+                    <p className="text-stone-400 text-xs sm:text-sm mt-1">{stat.label}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -276,7 +276,7 @@ const Home = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-semibold text-stone-700 mb-2">Property Type</label>
                         <select
@@ -465,7 +465,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-elegant max-w-xs"
+                  className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-elegant max-w-[200px] sm:max-w-xs"
                 >
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (

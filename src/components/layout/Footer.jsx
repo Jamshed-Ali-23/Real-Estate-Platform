@@ -252,7 +252,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-              <p className="text-slate-400 text-sm">
+              <p className="text-slate-400 text-xs sm:text-sm">
                 © {currentYear} {agentConfig.name}. All rights reserved.
               </p>
               <span className="hidden md:block w-1 h-1 bg-slate-600 rounded-full" />
@@ -260,7 +260,7 @@ const Footer = () => {
                 {agentConfig.license}
               </p>
             </div>
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Terms of Service</Link>
               <Link to="/login" className="text-primary-400 hover:text-primary-300 font-medium transition-colors flex items-center gap-1">

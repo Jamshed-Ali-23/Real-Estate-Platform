@@ -183,7 +183,7 @@ const Properties = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             >
               Find Your Perfect Property
             </motion.h1>
@@ -201,8 +201,8 @@ const Properties = () => {
 
       {/* Premium Filters Section */}
       <section className="sticky top-20 z-40 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
             <div className="relative">
               <TextInput
                 placeholder="Search location..."
@@ -257,11 +257,11 @@ const Properties = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between mb-8"
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8"
         >
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-1">Available Properties</h2>
-            <p className="text-slate-600">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">Available Properties</h2>
+            <p className="text-sm sm:text-base text-slate-600">
               Showing <span className="font-bold text-primary-600">{properties.length}</span> {properties.length === 1 ? 'property' : 'properties'}
             </p>
           </div>

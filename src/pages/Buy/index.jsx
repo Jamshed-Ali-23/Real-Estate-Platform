@@ -173,7 +173,7 @@ const Buy = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Buy Your Dream Property
             </motion.h1>
@@ -181,7 +181,7 @@ const Buy = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto"
             >
               Discover thousands of verified properties for sale across premium locations
             </motion.p>

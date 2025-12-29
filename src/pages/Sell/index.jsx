@@ -149,7 +149,7 @@ const Sell = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Sell or Rent Your Property
             </motion.h1>
@@ -157,7 +157,7 @@ const Sell = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto"
             >
               List your property with us and reach thousands of potential buyers and tenants. It's free and easy!
             </motion.p>

@@ -60,20 +60,20 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
         {/* Header */}
-        <div className="bg-primary-500 px-8 py-6 text-center">
-          <div className="w-20 h-20 bg-white rounded-full mx-auto mb-4 overflow-hidden">
+        <div className="bg-primary-500 px-6 sm:px-8 py-5 sm:py-6 text-center">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full mx-auto mb-3 sm:mb-4 overflow-hidden">
             <img
               src={agentConfig.photo}
               alt={agentConfig.name}
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="text-2xl font-bold text-white">Agent Login</h1>
-          <p className="text-primary-100 mt-1">Access your admin panel</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Agent Login</h1>
+          <p className="text-primary-100 mt-1 text-sm sm:text-base">Access your admin panel</p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="p-8 space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-6 sm:p-8 space-y-5 sm:space-y-6">
           <div>
             <TextInput
               label="Email Address"

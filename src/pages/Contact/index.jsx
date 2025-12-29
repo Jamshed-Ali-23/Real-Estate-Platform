@@ -142,7 +142,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Let's Connect
             </motion.h1>
@@ -150,7 +150,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-slate-200 max-w-2xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-2xl mx-auto"
             >
               Ready to start your real estate journey? I'm here to help you every step of the way.
             </motion.p>

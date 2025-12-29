@@ -67,21 +67,21 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo / Brand */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
               <motion.div
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative w-12 h-12 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-2xl flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all duration-300"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all duration-300"
               >
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-accent-500 rounded-full border-2 border-white animate-pulse"></div>
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-accent-500 rounded-full border-2 border-white animate-pulse"></div>
               </motion.div>
-              <div className="hidden sm:block">
-                <span className="text-xl font-bold text-stone-800">{agentConfig.name.split(' ')[0]}</span>
-                <span className="text-xl font-bold text-primary-600"> Estates</span>
-                <p className="text-xs text-stone-500 -mt-0.5 font-medium">Premium Real Estate</p>
+              <div className="hidden xs:block sm:block">
+                <span className="text-lg sm:text-xl font-bold text-stone-800">{agentConfig.name.split(' ')[0]}</span>
+                <span className="text-lg sm:text-xl font-bold text-primary-600"> Estates</span>
+                <p className="text-[10px] sm:text-xs text-stone-500 -mt-0.5 font-medium">Premium Real Estate</p>
               </div>
             </Link>
 

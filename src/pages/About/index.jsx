@@ -43,7 +43,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
               >
                 Hi, I'm{' '}
                 <span className="bg-gradient-to-r from-primary-400 via-primary-300 to-accent-400 bg-clip-text text-transparent">
@@ -175,13 +175,13 @@ const About = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center group"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-50 rounded-2xl mb-4 group-hover:scale-110 transition-transform text-2xl">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-primary-50 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform text-xl sm:text-2xl">
                   {stat.icon}
                 </div>
-                <p className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
                   {stat.value}{stat.suffix}
                 </p>
-                <p className="text-slate-600 mt-2 font-medium">{stat.label}</p>
+                <p className="text-slate-600 mt-1 sm:mt-2 font-medium text-sm sm:text-base">{stat.label}</p>
               </motion.div>
             ))}
           </div>

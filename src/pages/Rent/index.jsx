@@ -174,7 +174,7 @@ const Rent = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               Find Your Perfect Rental
             </motion.h1>
@@ -182,7 +182,7 @@ const Rent = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto"
             >
               Browse verified rental properties - apartments, houses, rooms & more
             </motion.p>

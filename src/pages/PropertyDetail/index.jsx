@@ -152,16 +152,16 @@ const PropertyDetail = () => {
         className="bg-white border-b border-slate-200"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center gap-2 text-sm">
-            <Link to="/" className="text-slate-500 hover:text-primary-500 transition-colors">Home</Link>
-            <svg className="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <nav className="flex items-center gap-2 text-xs sm:text-sm overflow-x-auto">
+            <Link to="/" className="text-slate-500 hover:text-primary-500 transition-colors whitespace-nowrap">Home</Link>
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 text-slate-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <Link to="/properties" className="text-slate-500 hover:text-primary-500 transition-colors">Properties</Link>
-            <svg className="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Link to="/properties" className="text-slate-500 hover:text-primary-500 transition-colors whitespace-nowrap">Properties</Link>
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 text-slate-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-slate-900 font-medium">{property.title}</span>
+            <span className="text-slate-900 font-medium truncate max-w-[150px] sm:max-w-none">{property.title}</span>
           </nav>
         </div>
       </motion.div>
@@ -176,7 +176,7 @@ const PropertyDetail = () => {
         >
           {/* Main Image */}
           <motion.div 
-            className="relative h-96 lg:h-[600px] rounded-3xl overflow-hidden shadow-elevated group"
+            className="relative h-64 sm:h-80 md:h-96 lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-elevated group"
             whileHover={{ scale: 1.01 }}
             transition={{ duration: 0.3 }}
           >
@@ -239,7 +239,7 @@ const PropertyDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative h-44 lg:h-72 rounded-2xl overflow-hidden ${
+                className={`relative h-32 sm:h-44 lg:h-72 rounded-xl sm:rounded-2xl overflow-hidden ${
                   activeImage === index + 1 ? 'ring-4 ring-primary-500 shadow-lg' : 'shadow-soft hover:shadow-elevated'
                 } transition-all duration-300`}
               >
@@ -266,27 +266,27 @@ const PropertyDetail = () => {
               transition={{ delay: 0.2 }}
               className="bg-white rounded-3xl p-8 shadow-soft border border-slate-200"
             >
-              <div className="flex flex-wrap items-start justify-between gap-6">
-                <div className="flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 text-primary-700 rounded-lg text-sm font-semibold mb-3">
+              <div className="flex flex-wrap items-start justify-between gap-4 sm:gap-6">
+                <div className="flex-1 min-w-0">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-50 text-primary-700 rounded-lg text-xs sm:text-sm font-semibold mb-3">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                     {property.type}
                   </div>
-                  <h1 className="text-4xl font-bold text-slate-900 mb-3">{property.title}</h1>
-                  <p className="text-slate-600 flex items-center gap-2 text-lg">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3">{property.title}</h1>
+                  <p className="text-slate-600 flex items-center gap-2 text-sm sm:text-base lg:text-lg">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    {property.address}
+                    <span className="truncate">{property.address}</span>
                   </p>
                 </div>
-                <div className="text-right">
-                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl px-6 py-4 shadow-lg">
-                    <p className="text-4xl font-bold text-white">${property.price.toLocaleString()}</p>
-                    <p className="text-sm text-primary-100 mt-1">Listed Price</p>
+                <div className="text-right w-full sm:w-auto">
+                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg">
+                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">${property.price.toLocaleString()}</p>
+                    <p className="text-xs sm:text-sm text-primary-100 mt-1">Listed Price</p>
                   </div>
                 </div>
               </div>
