@@ -75,7 +75,7 @@ A modern, full-stack real estate platform built for the Pakistani market. This a
 
 ```
 Real Estate Platform/
-├── backend/                    # Express.js Backend
+├── backend/                    # Express.js Backend API
 │   ├── config/
 │   │   └── db.js              # MongoDB connection
 │   ├── controllers/
@@ -102,43 +102,51 @@ Real Estate Platform/
 │   │   ├── seed.js            # Main seeder
 │   │   └── seedProperties.js  # Property seeder
 │   ├── server.js              # Main server file
-│   └── package.json
+│   ├── package.json           # Backend dependencies
+│   └── Procfile               # Heroku deployment
 │
-├── src/                        # React Frontend
-│   ├── components/
-│   │   ├── buttons/           # Reusable buttons
-│   │   ├── cards/             # Property, Stat, Lead cards
-│   │   ├── chat/              # Chat widget
-│   │   ├── forms/             # Form inputs
-│   │   ├── layout/            # Navbar, Footer, Sidebar
-│   │   ├── modals/            # Modal dialogs
-│   │   └── ui/                # UI components
-│   ├── config/
-│   │   └── agent.js           # Agent configuration
-│   ├── context/
-│   │   └── ChatContext.jsx    # Chat state
-│   ├── hooks/                 # Custom React hooks
-│   ├── pages/
-│   │   ├── Home/              # Landing page
-│   │   ├── Properties/        # All properties
-│   │   ├── Buy/               # Properties for sale
-│   │   ├── Rent/              # Rental properties
-│   │   ├── Sell/              # List property form
-│   │   ├── PropertyDetail/    # Single property view
-│   │   ├── About/             # About page
-│   │   ├── Contact/           # Contact page
-│   │   └── Admin/             # Admin panel pages
-│   ├── services/              # API service functions
-│   ├── stores/                # Zustand stores
-│   ├── utils/                 # Helper functions
-│   ├── App.jsx                # Main app component
-│   ├── main.jsx               # Entry point
-│   └── index.css              # Global styles
+├── frontend/                   # React Frontend (Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── buttons/       # Reusable buttons
+│   │   │   ├── cards/         # Property, Stat, Lead cards
+│   │   │   ├── chat/          # Chat widget
+│   │   │   ├── forms/         # Form inputs
+│   │   │   ├── layout/        # Navbar, Footer, Sidebar
+│   │   │   ├── modals/        # Modal dialogs
+│   │   │   └── ui/            # UI components
+│   │   ├── config/
+│   │   │   ├── agent.js       # Agent configuration
+│   │   │   └── environment.js # Environment config
+│   │   ├── context/
+│   │   │   └── ChatContext.jsx
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── pages/
+│   │   │   ├── Home/          # Landing page
+│   │   │   ├── Properties/    # All properties
+│   │   │   ├── Buy/           # Properties for sale
+│   │   │   ├── Rent/          # Rental properties
+│   │   │   ├── Sell/          # List property form
+│   │   │   ├── PropertyDetail/# Single property view
+│   │   │   ├── About/         # About page
+│   │   │   ├── Contact/       # Contact page
+│   │   │   └── Admin/         # Admin panel pages
+│   │   ├── services/          # API service functions
+│   │   ├── stores/            # Zustand stores
+│   │   ├── utils/             # Helper functions
+│   │   ├── App.jsx            # Main app component
+│   │   ├── main.jsx           # Entry point
+│   │   └── index.css          # Global styles
+│   ├── index.html             # HTML template
+│   ├── package.json           # Frontend dependencies
+│   ├── vite.config.js         # Vite configuration
+│   ├── tailwind.config.js     # Tailwind configuration
+│   └── postcss.config.js      # PostCSS configuration
 │
-├── package.json               # Frontend dependencies
-├── vite.config.js             # Vite configuration
-├── tailwind.config.js         # Tailwind configuration
-└── postcss.config.js          # PostCSS configuration
+├── docs/                       # Documentation
+├── package.json               # Root package (Heroku deployment)
+├── Procfile                   # Heroku Procfile
+└── README.md                  # This file
 ```
 
 ## 🚀 Installation
@@ -150,19 +158,20 @@ Real Estate Platform/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/Jamshed-Ali-23/Real-Estate-Platform.git
 cd "Real Estate Platform"
 ```
 
-### Step 2: Install Frontend Dependencies
+### Step 2: Install All Dependencies
 ```bash
-npm install
-```
+# Install backend dependencies
+npm run install:backend
 
-### Step 3: Install Backend Dependencies
-```bash
-cd backend
-npm install
+# Install frontend dependencies
+npm run install:frontend
+
+# Or install both at once
+npm run install:all
 ```
 
 ## 🔐 Environment Variables
@@ -173,29 +182,38 @@ NODE_ENV=development
 PORT=5000
 
 # MongoDB Atlas Connection
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/real-estate?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/realestate?retryWrites=true&w=majority
 
 # JWT Configuration
 JWT_SECRET=your-super-secret-jwt-key-here
-JWT_EXPIRE=30d
-JWT_COOKIE_EXPIRE=30
+JWT_EXPIRE=7d
+
+# Frontend URL (for CORS)
+FRONTEND_URL=http://localhost:3000
+```
+
+### Frontend (.env.local file in /frontend folder)
+```env
+VITE_API_URL=https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com/api
+VITE_SOCKET_URL=https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com
+VITE_APP_ENV=development
 ```
 
 ## ▶️ Running the Application
 
 ### Start Backend Server
 ```bash
-cd backend
-node server.js
-# or for development with auto-reload
-npm run dev
+npm run dev:backend
+# or
+cd backend && npm run dev
 ```
 Backend runs on: `http://localhost:5000`
 
 ### Start Frontend Development Server
 ```bash
-# In root directory
-npm run dev
+npm run dev:frontend
+# or
+cd frontend && npm run dev
 ```
 Frontend runs on: `http://localhost:3000`
 

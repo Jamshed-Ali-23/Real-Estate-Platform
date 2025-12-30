@@ -1,8 +1,8 @@
 {
   "name": "real-estate-platform",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "description": "Real Estate Platform - Full Stack Application",
+  "private": true,
   "engines": {
     "node": "18.x",
     "npm": "9.x"
@@ -11,49 +11,22 @@
   "scripts": {
     "start": "node backend/server.js",
     "postinstall": "npm install --prefix backend",
-    "build": "echo 'Skipping frontend build on Heroku - backend only deployment'",
-    "dev": "vite",
-    "dev:local": "cross-env VITE_USE_LOCAL_PROXY=true vite",
-    "build:frontend": "vite build",
-    "build:production": "vite build --mode production",
-    "preview": "vite preview",
-    "preview:production": "vite preview --mode production",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "build": "echo 'Backend only - no frontend build needed'",
+    
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    
+    "install:backend": "npm install --prefix backend",
+    "install:frontend": "npm install --prefix frontend",
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    
     "test:api": "node -e \"fetch('https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com/api/health').then(r=>r.json()).then(console.log).catch(console.error)\""
   },
-  "dependencies": {
-    "@hookform/resolvers": "^3.3.2",
-    "axios": "^1.6.2",
-    "date-fns": "^3.6.0",
-    "framer-motion": "^10.18.0",
-    "leaflet": "^1.9.4",
-    "lucide-react": "^0.303.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-dropzone": "^14.3.8",
-    "react-hook-form": "^7.49.0",
-    "react-hot-toast": "^2.6.0",
-    "react-icons": "^5.5.0",
-    "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.21.0",
-    "react-toastify": "^9.1.3",
-    "recharts": "^2.15.4",
-    "socket.io-client": "^4.8.1",
-    "swiper": "^11.2.10",
-    "yup": "^1.3.2",
-    "zustand": "^4.4.7"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jamshed-Ali-23/Real-Estate-Platform.git"
   },
-  "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6",
-    "vite": "^5.0.8"
-  }
+  "keywords": ["real-estate", "nodejs", "react", "express", "mongodb"],
+  "author": "Jamshed Ali",
+  "license": "MIT"
 }
