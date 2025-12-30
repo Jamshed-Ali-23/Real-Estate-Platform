@@ -3,7 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "scripts": {
+    "start": "cd backend && node server.js",
+    "heroku-postbuild": "cd backend && npm install",
     "dev": "vite",
     "dev:local": "cross-env VITE_USE_LOCAL_PROXY=true vite",
     "build": "vite build",
