@@ -75,7 +75,7 @@ A modern, full-stack real estate platform built for the Pakistani market. This a
 
 ```
 Real Estate Platform/
-├── backend/                    # Express.js Backend API
+├── backend/                    # 🔧 Express.js Backend API (Deploy to Heroku)
 │   ├── config/
 │   │   └── db.js              # MongoDB connection
 │   ├── controllers/
@@ -105,7 +105,7 @@ Real Estate Platform/
 │   ├── package.json           # Backend dependencies
 │   └── Procfile               # Heroku deployment
 │
-├── frontend/                   # React Frontend (Vite)
+├── frontend/                   # ⚛️ React Frontend (Deploy to Vercel)
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── buttons/       # Reusable buttons
@@ -144,76 +144,46 @@ Real Estate Platform/
 │   └── postcss.config.js      # PostCSS configuration
 │
 ├── docs/                       # Documentation
-├── package.json               # Root package (Heroku deployment)
-├── Procfile                   # Heroku Procfile
-└── README.md                  # This file
+├── .gitignore                  # Git ignore rules
+└── README.md                   # This file
 ```
 
-## 🚀 Installation
+## 🚀 Deployment
 
-### Prerequisites
-- Node.js 18 or higher
-- npm or yarn
-- MongoDB Atlas account (or local MongoDB)
-
-### Step 1: Clone the Repository
+### Backend (Heroku)
 ```bash
-git clone https://github.com/Jamshed-Ali-23/Real-Estate-Platform.git
-cd "Real Estate Platform"
+cd backend
+git init
+heroku create your-app-name
+git add .
+git commit -m "Initial commit"
+git push heroku main
 ```
 
-### Step 2: Install All Dependencies
+### Frontend (Vercel)
 ```bash
-# Install backend dependencies
-npm run install:backend
-
-# Install frontend dependencies
-npm run install:frontend
-
-# Or install both at once
-npm run install:all
+cd frontend
+npm install
+npm run build
+# Deploy via Vercel CLI or connect GitHub repo
 ```
 
-## 🔐 Environment Variables
+## 💻 Local Development
 
-### Backend (.env file in /backend folder)
-```env
-NODE_ENV=development
-PORT=5000
-
-# MongoDB Atlas Connection
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/realestate?retryWrites=true&w=majority
-
-# JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-here
-JWT_EXPIRE=7d
-
-# Frontend URL (for CORS)
-FRONTEND_URL=http://localhost:3000
-```
-
-### Frontend (.env.local file in /frontend folder)
-```env
-VITE_API_URL=https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com/api
-VITE_SOCKET_URL=https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com
-VITE_APP_ENV=development
-```
-
-## ▶️ Running the Application
-
-### Start Backend Server
+### Backend Setup
 ```bash
-npm run dev:backend
-# or
-cd backend && npm run dev
+cd backend
+npm install
+cp .env.example .env  # Configure your environment variables
+npm run dev
 ```
 Backend runs on: `http://localhost:5000`
 
-### Start Frontend Development Server
+### Frontend Setup
 ```bash
-npm run dev:frontend
-# or
-cd frontend && npm run dev
+cd frontend
+npm install
+npm run dev
 ```
 Frontend runs on: `http://localhost:3000`
 
