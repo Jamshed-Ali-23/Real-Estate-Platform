@@ -11,9 +11,10 @@
   "scripts": {
     "start": "node backend/server.js",
     "postinstall": "npm install --prefix backend",
+    "build": "echo 'Skipping frontend build on Heroku - backend only deployment'",
     "dev": "vite",
     "dev:local": "cross-env VITE_USE_LOCAL_PROXY=true vite",
-    "build": "vite build",
+    "build:frontend": "vite build",
     "build:production": "vite build --mode production",
     "preview": "vite preview",
     "preview:production": "vite preview --mode production",
