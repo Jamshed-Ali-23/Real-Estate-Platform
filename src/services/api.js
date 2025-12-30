@@ -1,14 +1,26 @@
 import axios from 'axios'
 
-// Use proxy in development (when running on same port), or fallback to direct URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
+// Production API URL - defaults to deployed Heroku backend
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com/api'
+
+// Check if we're in development mode and should use local proxy
+const isDevelopment = import.meta.env.DEV
+const useLocalProxy = isDevelopment && import.meta.env.VITE_USE_LOCAL_PROXY === 'true'
+
+// Use proxy only if explicitly set for local development, otherwise use production URL
+const baseURL = useLocalProxy ? '/api' : API_BASE_URL
+
+console.log(`🌐 API Configuration:`)
+console.log(`   Environment: ${isDevelopment ? 'Development' : 'Production'}`)
+console.log(`   Base URL: ${baseURL}`)
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL,
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 15000 // 15 second timeout
+  timeout: 30000, // 30 second timeout for production (Heroku can be slow on cold starts)
+  withCredentials: true // Enable credentials for CORS
 })
 
 // Request interceptor to add auth token and log requests

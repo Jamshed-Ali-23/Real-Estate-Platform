@@ -1,6 +1,9 @@
 import { io } from 'socket.io-client'
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001'
+// Production Socket URL - defaults to deployed Heroku backend
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com'
+
+console.log(`🔌 Socket Configuration: ${SOCKET_URL}`)
 
 class SocketService {
   constructor() {
@@ -15,8 +18,11 @@ class SocketService {
       auth: { token },
       transports: ['websocket', 'polling'],
       reconnection: true,
-      reconnectionAttempts: 5,
-      reconnectionDelay: 1000
+      reconnectionAttempts: 10,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      timeout: 20000,
+      withCredentials: true
     })
 
     this.socket.on('connect', () => {

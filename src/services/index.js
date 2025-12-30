@@ -10,6 +10,7 @@ import reviewService from './reviewService'
 import favoriteService from './favoriteService'
 import notificationService from './notificationService'
 import agentService from './agentService'
+import healthService from './healthService'
 
 export {
   api,
@@ -23,5 +24,6 @@ export {
   reviewService,
   favoriteService,
   notificationService,
-  agentService
+  agentService,
+  healthService
 }

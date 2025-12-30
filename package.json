@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:local": "cross-env VITE_USE_LOCAL_PROXY=true vite",
     "build": "vite build",
+    "build:production": "vite build --mode production",
     "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "preview:production": "vite preview --mode production",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "test:api": "node -e \"fetch('https://real-estate-platform-bf1c8ee4e0a4.herokuapp.com/api/health').then(r=>r.json()).then(console.log).catch(console.error)\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
