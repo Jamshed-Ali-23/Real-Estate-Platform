@@ -7,9 +7,10 @@
     "node": "18.x",
     "npm": "9.x"
   },
+  "cacheDirectories": ["backend/node_modules"],
   "scripts": {
-    "start": "cd backend && node server.js",
-    "heroku-postbuild": "cd backend && npm install",
+    "start": "node backend/server.js",
+    "postinstall": "npm install --prefix backend",
     "dev": "vite",
     "dev:local": "cross-env VITE_USE_LOCAL_PROXY=true vite",
     "build": "vite build",

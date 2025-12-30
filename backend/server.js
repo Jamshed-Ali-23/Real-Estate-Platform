@@ -2,10 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const connectDB = require('./config/db');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables from .env file (for local development)
+// On Heroku, environment variables are set directly in Config Vars
+// Try to load from backend/.env first (when running from root), then from .env (when in backend folder)
+const envPath = path.resolve(__dirname, '.env');
+dotenv.config({ path: envPath });
+
+// Debug: Log environment on startup
+console.log('🔧 Environment Check:');
+console.log('   NODE_ENV:', process.env.NODE_ENV || 'not set');
+console.log('   PORT:', process.env.PORT || '5000 (default)');
+console.log('   MONGODB_URI:', process.env.MONGODB_URI ? '✓ Set' : '✗ NOT SET');
+console.log('   JWT_SECRET:', process.env.JWT_SECRET ? '✓ Set' : '✗ NOT SET');
+console.log('   FRONTEND_URL:', process.env.FRONTEND_URL || 'not set');
+console.log('   __dirname:', __dirname);
+
+const connectDB = require('./config/db');
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -20,9 +33,31 @@ const settingsRoutes = require('./routes/settings');
 // Initialize express app
 const app = express();
 
-// Middleware
+// Parse FRONTEND_URL - remove trailing slash if present
+const frontendUrl = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.replace(/\/$/, '') : null;
+
+// CORS Configuration - Allow multiple origins
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:5173',
+  frontendUrl
+].filter(Boolean); // Remove null/undefined values
+
+console.log('🌐 Allowed CORS Origins:', allowedOrigins);
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', process.env.FRONTEND_URL],
+  origin: function(origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.some(allowed => origin.startsWith(allowed))) {
+      callback(null, true);
+    } else {
+      console.log('⚠️ CORS blocked origin:', origin);
+      callback(null, true); // Allow anyway for now - change to callback(new Error('Not allowed by CORS')) for strict mode
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
